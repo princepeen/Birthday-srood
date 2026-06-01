@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Mehvish 🌿</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
 
+  <canvas id="mainCanvas"></canvas>
+
+  <div class="page-wrap">
+
+    <!-- Top sparkles -->
+    <div class="sparkle-row" aria-hidden="true">
+      <span class="sp s1">✦</span>
+      <span class="sp s2">✦</span>
+      <span class="sp s3">✦</span>
+    </div>
+
+    <!-- Name header -->
+    <div class="name-block">
+      <p class="dear">Dear</p>
+      <h1 class="name">Mehvish</h1>
+      <p class="gift-line">A small gift, made for you.</p>
+    </div>
+
+    <!-- Mid sparkles -->
+    <div class="sparkle-row mid" aria-hidden="true">
+      <span class="sp s4">✦</span>
+      <span class="sp s5">✦</span>
+    </div>
+
+    <!-- Letter card -->
+    <div class="card" id="letterCard">
+      <div class="card-corner tl">✦</div>
+      <div class="card-corner tr">✦</div>
+      <div class="card-corner bl">✦</div>
+      <div class="card-corner br">✦</div>
+
+      <div class="card-header">
+        <span class="feather">🪶</span>
+        <h2 class="card-title">The Letter</h2>
+        <span class="feather">🪶</span>
+      </div>
+
+      <div class="card-rule"></div>
+
+      <p class="card-sub">for words, for you</p>
+
+      <div class="card-rule short"></div>
+
+      <!-- PDF viewer embedded -->
+      <div class="pdf-shell">
+        <iframe
+          id="pdfFrame"
+          src="letter.pdf"
+          title="Birthday Letter"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <div class="pdf-fallback">
+          <p>Can't display the letter here?</p>
+          <a href="letter.pdf" target="_blank" class="open-btn">Open Letter ♡</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom sparkles -->
+    <div class="sparkle-row" aria-hidden="true">
+      <span class="sp s6">✦</span>
+      <span class="sp s7">✦</span>
+      <span class="sp s8">✦</span>
+    </div>
+
+  </div>
+
+  <script src="stars.js"></script>
+</body>
+</html>
