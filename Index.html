@@ -1,1 +1,57 @@
-index html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Someone Special</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="landing.css"/>
+</head>
+<body>
+
+  <canvas id="bgCanvas"></canvas>
+
+  <main class="landing-wrap">
+
+    <header class="hero-text">
+      <p class="for-label">For Someone</p>
+      <h1 class="special-word">Special</h1>
+      <div class="vine-divider">
+        <span>🌿</span><span class="spark">✦</span><span>🌿</span>
+      </div>
+      <p class="await-text">A small surprise awaits.</p>
+    </header>
+
+    <div class="duck-zone" id="duckBtn" role="button" tabindex="0" aria-label="Enter the surprise">
+      <div class="duck-halo"></div>
+      <svg class="duck" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body -->
+        <ellipse cx="108" cy="128" rx="82" ry="60" fill="#f7e56b"/>
+        <!-- Wing shading -->
+        <ellipse cx="85" cy="132" rx="36" ry="20" fill="#e8c83a" opacity="0.6" transform="rotate(-8 85 132)"/>
+        <!-- Head -->
+        <circle cx="162" cy="76" r="40" fill="#f7e56b"/>
+        <!-- Eye -->
+        <circle cx="177" cy="68" r="5.5" fill="#1c1c1c"/>
+        <circle cx="179" cy="66" r="1.8" fill="white"/>
+        <!-- Beak -->
+        <ellipse cx="200" cy="80" rx="19" ry="9" fill="#e8932a"/>
+        <!-- Cheek -->
+        <ellipse cx="183" cy="84" rx="9" ry="5.5" fill="#f4a0a0" opacity="0.45"/>
+        <!-- Tail feather -->
+        <ellipse cx="35" cy="115" rx="16" ry="9" fill="#e8c83a" opacity="0.5" transform="rotate(20 35 115)"/>
+      </svg>
+      <span class="enter-text">Enter ♡</span>
+    </div>
+
+    <p class="click-nudge">↑ click the duck!</p>
+
+  </main>
+
+  <div class="transition-veil" id="veil"></div>
+
+  <script src="landing.js"></script>
+</body>
+</html>
