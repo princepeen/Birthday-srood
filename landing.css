@@ -1,1 +1,164 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --bg: #091710;
+  --gold: #f7e56b;
+  --gold-dim: #c9b840;
+  --green: #3ddc84;
+  --text: #cff0dc;
+  --text-dim: #7db896;
+  --pink: #ffb3d9;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text);
+}
+
+#bgCanvas {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+}
+
+.landing-wrap {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 100vh;
+  gap: 1.4rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+/* Hero text */
+.for-label {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-dim);
+  letter-spacing: 0.2em;
+}
+
+.special-word {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(4.5rem, 15vw, 8rem);
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(247,229,107,0.55), 0 0 80px rgba(247,229,107,0.2);
+  animation: titlePulse 4s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%,100% { text-shadow: 0 0 40px rgba(247,229,107,0.55), 0 0 80px rgba(247,229,107,0.2); }
+  50%      { text-shadow: 0 0 60px rgba(247,229,107,0.8), 0 0 120px rgba(247,229,107,0.35); }
+}
+
+.vine-divider {
+  display: flex; align-items: center; gap: 0.8rem;
+  font-size: 1rem; color: var(--text-dim);
+  letter-spacing: 0.3em;
+}
+
+.spark {
+  color: var(--gold);
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: 0.4; transform: scale(0.85); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+
+.await-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* Duck */
+.duck-zone {
+  display: flex; flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: transform 0.18s ease;
+}
+.duck-zone:hover  { transform: scale(1.06); }
+.duck-zone:active { transform: scale(0.96); }
+
+.duck-halo {
+  position: absolute;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(247,229,107,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -15px; left: 50%;
+  transform: translateX(-50%);
+  animation: haloPulse 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes haloPulse {
+  0%,100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateX(-50%) scale(1.15); }
+}
+
+.duck-svg {
+  width: 170px; height: auto;
+  filter: drop-shadow(0 0 20px rgba(247,229,107,0.65));
+  animation: duckBob 3.2s ease-in-out infinite;
+  position: relative; z-index: 1;
+}
+
+@keyframes duckBob {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+.enter-badge {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.7rem;
+  color: #122318;
+  background: rgba(247,229,107,0.92);
+  padding: 0.15rem 1.4rem 0.25rem;
+  border-radius: 30px;
+  margin-top: -2.8rem;
+  position: relative; z-index: 2;
+  box-shadow: 0 0 20px rgba(247,229,107,0.5);
+  pointer-events: none;
+}
+
+.click-nudge {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  animation: nudgeFade 2.2s ease-in-out infinite;
+}
+
+@keyframes nudgeFade {
+  0%,100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* Transition veil */
+.veil {
+  position: fixed; inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--bg);
+}
+
+.veil.active {
+  animation: veilIn 1.1s ease forwards;
+}
+
+@keyframes veilIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
