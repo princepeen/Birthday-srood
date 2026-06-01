@@ -1,22 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --gold:     #f7e56b;
-  --gold-dim: #c9b840;
-  --text:     #cff0dc;
-  --text-dim: #7db896;
-  --pink:     #ffb3d9;
-}
-
 html, body {
   width: 100%; height: 100%;
   overflow: hidden;
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--text);
   background: #091710;
 }
 
-/* ── Background image ── */
+/* Full screen background image */
 .bg-img {
   position: fixed;
   inset: 0;
@@ -28,162 +18,23 @@ html, body {
   display: block;
 }
 
-/* ── Dark overlay ── */
-.bg-overlay {
-  position: fixed; inset: 0;
-  background: rgba(6, 18, 10, 0.38);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ── Canvas ── */
-#bgCanvas {
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* ── Layout ── */
-.landing-wrap {
-  position: relative; z-index: 3;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  min-height: 100vh;
-  gap: 1.4rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-}
-
-/* ── Hero text ── */
-.for-label {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--text);
-  letter-spacing: 0.2em;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-}
-
-.special-word {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(4.5rem, 15vw, 8rem);
-  color: var(--gold);
-  line-height: 1;
-  text-shadow:
-    0 0 40px rgba(247,229,107,0.7),
-    0 0 80px rgba(247,229,107,0.3),
-    0 2px 12px rgba(0,0,0,0.5);
-  animation: titlePulse 4s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-  0%,100% {
-    text-shadow:
-      0 0 40px rgba(247,229,107,0.7),
-      0 0 80px rgba(247,229,107,0.3),
-      0 2px 12px rgba(0,0,0,0.5);
-  }
-  50% {
-    text-shadow:
-      0 0 65px rgba(247,229,107,1),
-      0 0 130px rgba(247,229,107,0.5),
-      0 2px 12px rgba(0,0,0,0.5);
-  }
-}
-
-.vine-divider {
-  display: flex; align-items: center; gap: 0.8rem;
-  font-size: 1rem;
-  color: var(--text);
-  letter-spacing: 0.3em;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-}
-
-.spark {
-  color: var(--gold);
-  animation: twinkle 2s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0%,100% { opacity: 0.4; transform: scale(0.85); }
-  50%      { opacity: 1;   transform: scale(1.2);  }
-}
-
-.await-text {
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--text);
-  letter-spacing: 0.1em;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-}
-
-/* ── Duck ── */
-.duck-zone {
-  display: flex; flex-direction: column;
-  align-items: center;
+/* Invisible clickable area over the duck */
+/* Duck sits roughly center-horizontal, ~55-80% down the image */
+.duck-btn {
+  position: fixed;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 180px;
+  z-index: 10;
   cursor: pointer;
-  position: relative;
-  user-select: none;
-  transition: transform 0.18s ease;
-}
-.duck-zone:hover  { transform: scale(1.06); }
-.duck-zone:active { transform: scale(0.96); }
-
-.duck-halo {
-  position: absolute;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(247,229,107,0.35) 0%, transparent 70%);
   border-radius: 50%;
-  top: -15px; left: 50%;
-  transform: translateX(-50%);
-  animation: haloPulse 2.8s ease-in-out infinite;
-  pointer-events: none;
+  /* Uncomment below to see hitbox while testing: */
+  /* background: rgba(255,0,0,0.3); */
 }
 
-@keyframes haloPulse {
-  0%,100% { opacity: 0.5; transform: translateX(-50%) scale(1);    }
-  50%      { opacity: 1;   transform: translateX(-50%) scale(1.18); }
-}
-
-.duck-svg {
-  width: 170px; height: auto;
-  filter: drop-shadow(0 0 22px rgba(247,229,107,0.7));
-  animation: duckBob 3.2s ease-in-out infinite;
-  position: relative; z-index: 1;
-}
-
-@keyframes duckBob {
-  0%,100% { transform: translateY(0px);   }
-  50%      { transform: translateY(-10px); }
-}
-
-.enter-badge {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.7rem;
-  color: #122318;
-  background: rgba(247,229,107,0.92);
-  padding: 0.15rem 1.4rem 0.25rem;
-  border-radius: 30px;
-  margin-top: -2.8rem;
-  position: relative; z-index: 2;
-  box-shadow: 0 0 20px rgba(247,229,107,0.6);
-  pointer-events: none;
-}
-
-.click-nudge {
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-  animation: nudgeFade 2.2s ease-in-out infinite;
-}
-
-@keyframes nudgeFade {
-  0%,100% { opacity: 0.5; }
-  50%      { opacity: 1;   }
-}
-
-/* ── Transition veil ── */
+/* Transition veil */
 .veil {
   position: fixed; inset: 0;
   z-index: 999;
@@ -197,4 +48,4 @@ html, body {
 @keyframes veilIn {
   0%   { opacity: 0; }
   100% { opacity: 1; }
-        }
+}
